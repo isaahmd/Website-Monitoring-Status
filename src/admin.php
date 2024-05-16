@@ -55,7 +55,7 @@ function deleteIP($conn, $tableName, $ip) {
 function createTable($conn, $tableName) {
     $sql = "CREATE TABLE IF NOT EXISTS $tableName (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        ip VARCHAR(15) NOT NULL,
+        ip VARCHAR(255) NOT NULL,
         status INT NOT NULL,
         description VARCHAR(255) NOT NULL
     )";
