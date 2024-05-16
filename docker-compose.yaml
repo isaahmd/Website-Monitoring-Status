@@ -1,0 +1,55 @@
+version: '3'
+
+volumes:
+  php_data:
+    name: php_data
+    driver: local
+networks:
+  monitoring:
+    name: monitoring
+
+services:
+
+  php-env:
+    build: .
+    volumes:
+      - ./src:/var/www/html
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - monitoring
+    ports:
+      - 80:80
+      - 443:443
+
+  mysql_db:
+    image: mysql:latest
+    
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    networks:
+      - monitoring
+    volumes:
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_DATABASE=mysql_db
+      - MYSQL_USER=LTKA
+      - MYSQL_PASSWORD=123 # this should live in a env var
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1 # equivalent to True
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    networks:
+      - monitoring
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY:1
+      - PMA_HOST=mysql_db
+      - PMA_PORT=3306
+    links:
+      - mysql_db
+
+  
+
+ 
