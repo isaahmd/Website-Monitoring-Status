@@ -1,4 +1,4 @@
-# Tubes LTKA 18121007 18121004
+# Tubes LTKA by Zakariyya Gambetta (18121007) & Bagus Isa Ahmad (18121004)
 
 ## Setup
 1. Install Docker + Docker Compose
