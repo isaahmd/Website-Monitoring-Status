@@ -9,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Validate the username and password (you may want to use a more secure method)
     $users = array(
         "user1" => "password1",
         "user2" => "password2",
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Add more users as needed
     );
 
-    // Validate the username and password
+    // Validasi uname + pw
     if (isset($users[$username]) && $users[$username] === $password) {
         $_SESSION["authenticated"] = true;
         header("Location: index.php");

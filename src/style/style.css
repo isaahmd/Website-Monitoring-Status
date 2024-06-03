@@ -104,7 +104,7 @@ h2{
     margin-bottom: 15px;
 }
 
-/********* Home *****************/
+
 
 .nav{
     background: #fff;
@@ -179,22 +179,19 @@ select {
     border-radius: 5px;
     border: 1px solid #ccc;
     outline: none;
-    margin-top: 10px; /* Optional: Adjust the top margin as needed */
+    margin-top: 10px; 
 }
 
-/* Styling for the options within the select dropdown */
 select option {
     font-size: 16px;
 }
 
-/* Optional: Add some styling to improve the appearance */
 select:hover,
 select:focus {
     border-color: #555;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Optional: Customize the appearance of the dropdown arrow */
 select::-ms-expand {
     display: none;
 }
