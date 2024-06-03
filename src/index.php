@@ -34,7 +34,12 @@ ob_end_flush();
     </div>
 
     <?php
-        $conn = new mysqli("mysql_db", "root", "", "ping");
+        $hostname = 'testdb.cj4me64yy3cc.ap-southeast-1.rds.amazonaws.com'; // RDS endpoint
+        $username = 'ltka';            // RDS master username
+        $password = 'root1234';            // RDS master password
+       # $dbname   = 'db-test';
+        #$conn = new mysqli("mysql_db", "root", "", "ping");
+        $conn = new mysqli($hostname, $username, $password, "ping");
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
